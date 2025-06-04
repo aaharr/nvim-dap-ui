@@ -45,6 +45,21 @@ function M.get_current_expr()
   return nio.fn.expand("<cexpr>")
 end
 
+---Return the currently visually selected text
+---@return string|nil
+function M.get_visual_text()
+  if nio.fn.mode() ~= "v" then
+    return nil
+  end
+  local start = nio.fn.getpos("v")
+  local finish = nio.fn.getpos(".")
+  local lines = M.get_selection(start, finish)
+  if not lines then
+    return nil
+  end
+  return table.concat(lines, "\n")
+end
+
 function M.create_buffer(name, options)
   local buf
   return function()

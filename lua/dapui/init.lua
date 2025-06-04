@@ -219,6 +219,24 @@ function dapui.eval(expr, args)
   end)
 end
 
+--- Evaluate an expression by executing it in the REPL
+---
+--- If {expr} is nil the current word is used or the visually selected text
+---@param expr? string Expression to send to the REPL
+function dapui.eval_repl(expr)
+  nio.run(function()
+    if not dap.session() then
+      util.notify("No active debug session", vim.log.levels.WARN)
+      return
+    end
+    if not expr then
+      expr = util.get_current_expr()
+    end
+    dap.repl.open()
+    dap.repl.execute(expr)
+  end)
+end
+
 --- Update the config.render settings and re-render windows
 ---@param update dapui.Config.render Updated settings, from the `render` table of
 --- the config
