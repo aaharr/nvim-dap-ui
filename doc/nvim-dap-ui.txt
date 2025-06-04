@@ -172,6 +172,14 @@ Parameters~
 current word is used, and in visual mode the currently highlighted text.
 {args?} `(dapui.EvalArgs)`
 
+                                                                 *dapui.eval_repl()*
+`eval_repl`({expr})
+
+Execute an expression in the REPL buffer.
+Parameters~
+{expr?} `(string)` Expression to execute. If nil, then the current word or
+the visually selected text is used.
+
                                                          *dapui.update_render()*
 `update_render`({update})
 

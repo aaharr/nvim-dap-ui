@@ -228,3 +228,14 @@ vnoremap <M-k> <Cmd>lua require("dapui").eval()<CR>
 Call the same function again while the window is open to jump to the eval window.
 
 The same mappings as the variables element apply within the hover window.
+
+### Evaluate in REPL
+
+Execute an expression in the REPL instead of showing a hover window.
+
+```lua
+require("dapui").eval_repl(<expression>)
+```
+
+When no expression is provided the word under the cursor or the visually
+selected text is used.
