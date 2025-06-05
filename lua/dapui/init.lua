@@ -31,6 +31,9 @@
 --- you can patch it via Font Patcher(https://github.com/ryanoasis/nerd-fonts#option-8-patch-your-own-font).
 --- There is a simple step by step guide here: https://github.com/mortepau/codicons.nvim#how-to-patch-fonts.
 
+-- TODO:@aaron -- Create a 'restart' func that uses original file and context
+-- May need to go in nvim-dap if this just listens to nvim-dap
+
 local success, _ = pcall(require, "nio")
 if not success then
   error(
